@@ -1,0 +1,56 @@
+package edu.cqupt.kaoyan.sys.common.interceptor;
+
+
+import edu.cqupt.kaoyan.sys.common.exception.CommonException;
+import edu.cqupt.kaoyan.sys.common.system.ResultCode;
+import edu.cqupt.kaoyan.sys.common.utils.JwtUtils;
+import io.jsonwebtoken.Claims;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * @author Aaron
+ * @description 通过拦截器获取token数据
+ * @date 2020/4/8 3:58 PM
+ */
+@Component
+public class JwtInterceptor extends HandlerInterceptorAdapter {
+    @Autowired
+    JwtUtils jwtUtils;
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //1。通过request获取token信息
+        String authorization = request.getHeader("Authorization");
+        //2.判断请求头信息是否为空，或者是否以Bearer开头
+        if (!StringUtils.isEmpty(authorization) && authorization.startsWith("Bearer")) {
+            //获取token数据
+            String token = authorization.replace("Bearer ", "");
+            //解析token获取clamis
+            Claims claims = jwtUtils.parseJwt(token);
+            if (claims != null) {
+                //通过clamis获取用户权限
+
+                //获取接口上requestmapping注解
+                HandlerMethod handerMethod = (HandlerMethod) handler;
+                RequestMapping annotion = handerMethod.getMethodAnnotation(RequestMapping.class);
+                String name = annotion.name();
+                //判断用户是否用于相应请求权限
+                if (apis.contains(name)) {
+                    request.setAttribute("students_clamis", claims);
+                    return true;
+                }
+            }
+        }
+        throw new CommonException(ResultCode.UNAUTHORISE);
+    }
+
+
+}

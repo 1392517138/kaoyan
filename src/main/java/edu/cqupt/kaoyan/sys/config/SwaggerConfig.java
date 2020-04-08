@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan.config;
+package edu.cqupt.kaoyan.sys.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

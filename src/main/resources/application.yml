@@ -16,7 +16,7 @@ spring:
 #    virtualHost: /
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/kaoyan?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/graduate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
     password: 13452078118
     type: com.alibaba.druid.pool.DruidDataSource
@@ -40,6 +40,7 @@ spring:
   mail:
     host: smtp.qq.com
     title: 学习资料平台
+    content: 您的验证码为
     username: 2295268364@qq.com
     password: lrvdzgvzlzzlecag
     port: 587
@@ -68,3 +69,7 @@ server:
     accesslog:
       encoding: UTF-8
     uri-encoding: UTF-8
+jwt:
+  config:
+    key: kaoyan-piwenjing
+    ttl: 3600000 #一个小时超时

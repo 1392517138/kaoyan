@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan.config;
+package edu.cqupt.kaoyan.sys.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
