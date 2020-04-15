@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan.sys.common.system;
+package edu.cqupt.kaoyan.sys.common.system.result;
 
 /**
  * 公共的返回码
@@ -19,8 +19,10 @@ public enum ResultCode {
     SERVER_ERROR(false, 99999, "抱歉，系统繁忙，请稍后重试！"),
 
     //---用户操作返回码  2xxxx----
-    EMAILORPASSWORDERROR(false, 20001, "用户名或密码错误");
-
+    EMAILORPASSWORDERROR(false, 20001, "用户名或密码错误"),
+    SHORTMESSAGECODEERROR(false, 20002, "验证码错误"),
+    ALLREADYREGISTER(false, 20003, "该用户已经注册"),
+    EMAILINPUTERROR(false, 20004, "邮箱输入错误");
     //---企业操作返回码  3xxxx----
     //---权限操作返回码----
     //---其他操作返回码----

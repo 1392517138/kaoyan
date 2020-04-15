@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Date;
-import java.util.Map;
 
 /**
  * @author Aaron
@@ -30,19 +29,19 @@ public class JwtUtils {
      * id:登陆用户id
      * subject:登陆用户名
      */
-    public String createJwt(String id, String name, Map<String, Object> map) {
+    public String createJwt(Long id) {
         //1.设置失效时间
         long now = System.currentTimeMillis(); //当前毫秒
         long exp = now + ttl;
         //2.创建jwtBuilder
-        JwtBuilder jwtBuilder = Jwts.builder().setId(id).setSubject(name)
+        JwtBuilder jwtBuilder = Jwts.builder().setId(id.toString())
                 .setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS256, key);
 
-        //3.根据map设置claims
-        map.forEach((k, v) -> {
-            jwtBuilder.claim(k, v);
-        });
+//        //3.根据map设置claims
+//        map.forEach((k, v) -> {
+//            jwtBuilder.claim(k, v);
+//        });
         jwtBuilder.setExpiration(new Date(exp));
         //4.创建token
         String token = jwtBuilder.compact();

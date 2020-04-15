@@ -73,3 +73,15 @@ jwt:
   config:
     key: kaoyan-piwenjing
     ttl: 3600000 #一个小时超时
+#authorization:
+#  path: sys/students,sys/reply
+
+
+mybatis-plus:
+  mapper-locations: mapper/sys/*.xml
+  global-config:
+      db-config:
+        id-type: id_worker
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+

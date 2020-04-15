@@ -2,8 +2,8 @@ package edu.cqupt.kaoyan.sys.common.handler;
 
 
 import edu.cqupt.kaoyan.sys.common.exception.CommonException;
-import edu.cqupt.kaoyan.sys.common.system.Result;
-import edu.cqupt.kaoyan.sys.common.system.ResultCode;
+import edu.cqupt.kaoyan.sys.common.system.result.Result;
+import edu.cqupt.kaoyan.sys.common.system.result.ResultCode;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

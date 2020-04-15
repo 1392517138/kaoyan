@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BaseController {
     protected HttpServletRequest request;
     protected HttpServletResponse response;
-    protected Integer stuId;
+    protected Long stuId;
     protected Claims claims;
 
     @ModelAttribute
@@ -23,8 +23,8 @@ public class BaseController {
         this.response = respons;
         Object obj = request.getAttribute("students_clamis");
         if (obj != null) {
-            this.claims = (Claims) claims;
-            this.stuId = (Integer) claims.get("stuId");
+            this.claims = (Claims) obj;
+            this.stuId = Long.parseLong(claims.getId());
         }
 
     }

@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan;
+package edu.cqupt.kaoyan.sys;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,8 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @description
  * @date 2020/3/26 6:53 PM
  */
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
+@RunWith(SpringRunner.class)
 @Slf4j
 public class KaoyanApplicationTests {
 

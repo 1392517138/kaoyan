@@ -3,7 +3,7 @@ package edu.cqupt.kaoyan.sys.common.utils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
  * @description
  * @date 2020/3/27 2:05 PM
  */
-@Service
+@Component
 public class ShortMessageUtil {
     @Resource
     private JavaMailSenderImpl mailSender;
@@ -26,7 +26,7 @@ public class ShortMessageUtil {
     @Value("${spring.mail.content}")
     private String content;
 
-    public void sendMail(String[] to) {
+    public String sendMail(String[] to) {
         System.out.println("---to" + to[0]);
         System.out.println("titile:" + title);
         System.out.println("---from" + from);
@@ -42,5 +42,7 @@ public class ShortMessageUtil {
 //                message);
 
         mailSender.send(message);
+        //返回验证码
+        return param;
     }
 }

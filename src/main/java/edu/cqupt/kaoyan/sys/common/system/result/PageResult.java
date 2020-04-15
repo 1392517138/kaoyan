@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan.sys.common.system;
+package edu.cqupt.kaoyan.sys.common.system.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

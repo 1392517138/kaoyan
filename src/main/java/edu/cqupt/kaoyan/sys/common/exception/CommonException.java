@@ -1,7 +1,7 @@
 package edu.cqupt.kaoyan.sys.common.exception;
 
 
-import edu.cqupt.kaoyan.sys.common.system.ResultCode;
+import edu.cqupt.kaoyan.sys.common.system.result.ResultCode;
 import lombok.Getter;
 
 /**

@@ -1,4 +1,4 @@
-package edu.cqupt.kaoyan;
+package edu.cqupt.kaoyan.sys;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
