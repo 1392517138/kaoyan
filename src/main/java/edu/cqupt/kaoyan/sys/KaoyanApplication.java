@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author piwenjing
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication
 @EnableCaching
+@EnableTransactionManagement(proxyTargetClass = true)
 @MapperScan("edu.cqupt.kaoyan.sys.mapper")
 public class KaoyanApplication {
     public static void main(String[] args) {

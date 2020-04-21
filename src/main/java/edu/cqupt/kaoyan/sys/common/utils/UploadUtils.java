@@ -2,15 +2,18 @@ package edu.cqupt.kaoyan.sys.common.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
+import java.util.UUID;
 
 /**
  * @author Aaron
  * @description
  * @date 2020/4/14 9:52 AM
  */
+@Slf4j
 public class UploadUtils {
     // Endpoint以杭州为例，其它Region请按实际情况填写。
     private static String endpoint = "http://oss-accelerate.aliyuncs.com";
@@ -20,13 +23,28 @@ public class UploadUtils {
     private static String bucketName = "smart-house-img";
     private static String SUFFER_URL = "https://smart-house-img.oss-accelerate.aliyuncs.com/";
 
-    public static String uploadImage(MultipartFile file, String name) {
+    public static String uploadImage(MultipartFile file) {
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        String className = (new Throwable()).getStackTrace()[1].toString();
+//        log.info(className+"用到的");
+
+        String classfy = "";
+        //如果是上传question或reply类，qsrpImage
+        if (className.contains("QuestionServiceImpl") || className.contains("ReplyServiceImpl")) {
+            classfy = "qsrpImage";
+            //如果是用户头像类的
+        } else if (className.contains("StudentsServiceImpl")) {
+            classfy = "userImage";
+        } else if (className.contains("ShareServiceImpl")) {
+            classfy = "share";
+        }
+
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         //获取文件后缀名称
         String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-        String filename = "shujuku/userImage/" + name + ext;
-        System.out.println(filename);
+        String filename = "shujuku/" + classfy + "/" + uuid + ext;
+//        System.out.println(filename);
         //文件地址
         String url = null;
         try {

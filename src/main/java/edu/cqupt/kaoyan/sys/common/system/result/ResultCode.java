@@ -22,10 +22,16 @@ public enum ResultCode {
     EMAILORPASSWORDERROR(false, 20001, "用户名或密码错误"),
     SHORTMESSAGECODEERROR(false, 20002, "验证码错误"),
     ALLREADYREGISTER(false, 20003, "该用户已经注册"),
-    EMAILINPUTERROR(false, 20004, "邮箱输入错误");
+    EMAILINPUTERROR(false, 20004, "邮箱输入错误"),
+    ALLREADYADDEDERROR(false, 20005, "已经添加"),
+    NOTADDEDERRORERROR(false, 20006, "没有添加"),
+    ADDCOLLECTSUCESS(true, 20007, "添加收藏成功"),
+    DELCOLLECTSUCCESS(true, 20007, "取消收藏成功");
+
     //---企业操作返回码  3xxxx----
     //---权限操作返回码----
     //---其他操作返回码----
+
 
     //操作是否成功
     boolean success;

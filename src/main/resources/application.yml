@@ -18,7 +18,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/graduate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 13452078118
+    password: root
     type: com.alibaba.druid.pool.DruidDataSource
     platform: mysql
     initialSize: 1
@@ -35,7 +35,6 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 25
     filters: stat,wall,slf4j
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-
 #设置邮箱
   mail:
     host: smtp.qq.com
@@ -63,7 +62,6 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
-
 server:
   tomcat:
     accesslog:
@@ -72,7 +70,7 @@ server:
 jwt:
   config:
     key: kaoyan-piwenjing
-    ttl: 3600000 #一个小时超时
+    ttl: 36000000 #一个10小时超时
 #authorization:
 #  path: sys/students,sys/reply
 
@@ -84,4 +82,6 @@ mybatis-plus:
         id-type: id_worker
       logic-not-delete-value: 0
       logic-delete-value: 1
+  pageInfo:
+      size: 18
 

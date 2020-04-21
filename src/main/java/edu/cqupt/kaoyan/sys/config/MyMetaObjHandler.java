@@ -16,6 +16,10 @@ public class MyMetaObjHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         if (metaObject.hasSetter("createTime")) {
             this.fillStrategy(metaObject, "createTime", LocalDateTime.now());
+        } else if (metaObject.hasSetter("replyCreateAt")) {
+            this.fillStrategy(metaObject, "replyCreateAt", LocalDateTime.now());
+        } else if (metaObject.hasSetter("quesCreateAt")) {
+            this.fillStrategy(metaObject, "quesCreateAt", LocalDateTime.now());
         }
     }
 

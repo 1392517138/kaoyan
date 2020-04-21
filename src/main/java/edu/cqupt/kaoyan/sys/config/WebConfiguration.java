@@ -22,9 +22,9 @@ public class WebConfiguration implements WebMvcConfigurer {
                 .excludePathPatterns(
                         "/sys/students/login",
                         "/sys/students/register",
-
-                        //swagger
                         "/sys/students/getByStuEmail2",
+                        "/sys/admin/login",
+                        //swagger
                         "/swagger-resources/**",
                         "/webjars/**",
                         "/v2/**",

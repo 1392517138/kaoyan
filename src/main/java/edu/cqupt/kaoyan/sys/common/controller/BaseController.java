@@ -26,6 +26,5 @@ public class BaseController {
             this.claims = (Claims) obj;
             this.stuId = Long.parseLong(claims.getId());
         }
-
     }
 }
