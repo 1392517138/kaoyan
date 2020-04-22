@@ -67,6 +67,10 @@ server:
     accesslog:
       encoding: UTF-8
     uri-encoding: UTF-8
+  ssl:
+    key-store: 3749320_www.p3wj.top.pfx
+    key-store-password: m401SiN7
+  port: 443
 jwt:
   config:
     key: kaoyan-piwenjing
