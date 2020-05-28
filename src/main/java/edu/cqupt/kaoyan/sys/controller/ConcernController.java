@@ -39,7 +39,6 @@ public class ConcernController extends BaseController {
     @ApiOperation("查看自己添加的")
     @RequestMapping(value = "/viewAddCourse", method = RequestMethod.GET, headers = "Authorization")
     public Result viewAddCourse() {
-
         return new Result(ResultCode.SUCCESS, iConcernService.viewAddCourse(stuId));
     }
 }

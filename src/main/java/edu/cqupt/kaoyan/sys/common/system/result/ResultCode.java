@@ -26,8 +26,9 @@ public enum ResultCode {
     ALLREADYADDEDERROR(false, 20005, "已经添加"),
     NOTADDEDERRORERROR(false, 20006, "没有添加"),
     ADDCOLLECTSUCESS(true, 20007, "添加收藏成功"),
-    DELCOLLECTSUCCESS(true, 20007, "取消收藏成功");
+    DELCOLLECTSUCCESS(true, 20007, "取消收藏成功"),
 
+    SIZEEXCEEDEDERROR(false, 30002, "文件大小超出范围，应小于50m");
     //---企业操作返回码  3xxxx----
     //---权限操作返回码----
     //---其他操作返回码----

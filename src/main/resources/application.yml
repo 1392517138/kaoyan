@@ -61,12 +61,14 @@ spring:
       enabled: true
   servlet:
     multipart:
-      max-file-size: 10MB
+      max-file-size: 50000000
+      max-request-size: 50000000
 server:
   tomcat:
     accesslog:
       encoding: UTF-8
     uri-encoding: UTF-8
+    max-swallow-size: -1
   ssl:
     key-store: 3749320_www.p3wj.top.pfx
     key-store-password: m401SiN7

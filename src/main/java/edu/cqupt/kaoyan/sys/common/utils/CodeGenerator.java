@@ -94,6 +94,8 @@ public class CodeGenerator {
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
+
+
         /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
