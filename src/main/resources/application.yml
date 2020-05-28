@@ -16,7 +16,7 @@ spring:
 #    virtualHost: /
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/graduate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://39.98.124.97:3306/graduate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
