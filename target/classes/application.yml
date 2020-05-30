@@ -1,0 +1,93 @@
+
+#日志设置
+logging:
+  level:
+    edu.cqupt.kaoyan.sys.dao: debug
+  pattern:
+    console: "%d{HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} ** [%thread] ** %-5level ** %logger{50}** %msg%n"
+
+spring:
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+#    virtualHost: /
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.98.124.97:3306/graduate?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    platform: mysql
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 25
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+#设置邮箱
+  mail:
+    host: smtp.qq.com
+    title: 学习资料平台
+    content: 您的验证码为
+    username: 2295268364@qq.com
+    password: lrvdzgvzlzzlecag
+    port: 587
+    properties:
+      smtp:
+        ssl:
+          enable: true
+  #redis配置
+    redis:
+      host: localhost
+      port: 6379
+      max-wait: 30000  #连接池最大阻塞等待时间(使用负值表示没有限制)
+      max-active: -1  #连接池最大连接数(使用负值表示没有限制)
+      max-idle: 20     #连接池中的最大空闲连接
+      min-idle: 0
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 50000000
+      max-request-size: 50000000
+server:
+  tomcat:
+    accesslog:
+      encoding: UTF-8
+    uri-encoding: UTF-8
+    max-swallow-size: -1
+  ssl:
+    key-store: 3749320_www.p3wj.top.pfx
+    key-store-password: m401SiN7
+  port: 443
+jwt:
+  config:
+    key: kaoyan-piwenjing
+    ttl: 36000000 #一个10小时超时
+#authorization:
+#  path: sys/students,sys/reply
+
+
+mybatis-plus:
+  mapper-locations: mapper/sys/*.xml
+  global-config:
+      db-config:
+        id-type: id_worker
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  pageInfo:
+      size: 18
+
