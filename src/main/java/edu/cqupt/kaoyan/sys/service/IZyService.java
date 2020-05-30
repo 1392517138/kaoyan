@@ -1,5 +1,6 @@
 package edu.cqupt.kaoyan.sys.service;
 
+import edu.cqupt.kaoyan.sys.common.system.result.Result;
 import edu.cqupt.kaoyan.sys.entity.Zy;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -13,4 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IZyService extends IService<Zy> {
 
+    /**
+     * 获得专业
+     *
+     * @return
+     */
+    Result getZy();
 }
