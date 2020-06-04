@@ -14,6 +14,6 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface XyZyMapper extends BaseMapper<XyZy> {
 
-    @Select("select distinct xymc from xy_zy where zyh=#{zyh}")
-    String getXybyZyh(String zyh);
+    @Select("select distinct xymc from xy_zy where xyh=#{xyh}")
+    String getXyh(String xyh);
 }

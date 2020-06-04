@@ -36,6 +36,7 @@ public class MorenKcServiceImpl extends ServiceImpl<MorenKcMapper, MorenKc> impl
     @Autowired
     XyZyMapper xyZyMapper;
 
+
     private Result setMrkcResourceDTO(String kcbh, String type, List<String> resourceId) {
         List<MrkcPdf> mrkcPdfs = new LinkedList<>();
         MrkcResourceDTO mrkcResourceDTO;
@@ -96,11 +97,16 @@ public class MorenKcServiceImpl extends ServiceImpl<MorenKcMapper, MorenKc> impl
     }
 
     @Override
-    public Result searchByZyh(String zyh) {
-        String xymc = xyZyMapper.getXybyZyh(zyh);
-        List<MorenKc> morenKcs = this.getKcByXymc(xymc);
-        return new Result(ResultCode.SUCCESS, morenKcs);
+    public Result searchByZyhAndXyh(String zyh, String xyh) {
+        List<String> kcbhs = morenKcMapper.selectKcbhByZyhAndXyh(zyh, xyh);
+        List<MorenKc> lists = new LinkedList<>();
+        for (String kcbh : kcbhs) {
+            MorenKc morenKcById = morenKcMapper.getMorenKcById(kcbh);
+            lists.add(morenKcById);
+        }
+        return new Result(ResultCode.SUCCESS, lists);
     }
+
 
     @Override
     public Result getUnknowXy() {

@@ -55,7 +55,7 @@ public interface IMorenKcService extends IService<MorenKc> {
      * @param zyh
      * @return
      */
-    Result searchByZyh(String zyh);
+    Result searchByZyhAndXyh(String zyh, String xyh);
 
     /**
      * 获得一些乱七吧糟的学院

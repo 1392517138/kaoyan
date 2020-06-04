@@ -1,7 +1,7 @@
 package edu.cqupt.kaoyan.sys.mapper;
 
-import edu.cqupt.kaoyan.sys.entity.AdminCheck;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import edu.cqupt.kaoyan.sys.entity.AdminCheck;
 
 /**
  * <p>

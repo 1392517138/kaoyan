@@ -2,6 +2,7 @@ package edu.cqupt.kaoyan.sys.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import edu.cqupt.kaoyan.sys.entity.MorenKc;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -31,5 +32,9 @@ public interface MorenKcMapper extends BaseMapper<MorenKc> {
     @Select("select zsdtxid from zsdtx where kcbh=#{kcbh}")
     List<String> getZsdtxId(String kcbh);
 
+    @Select("select * from moren_kc where kcbh=#{kcbh}")
+    MorenKc getMorenKcById(String kcbh);
 
+    @Select("select kcbh from course_major where zyh=#{zyh} and xyh=#{xyh}")
+    List<String> selectKcbhByZyhAndXyh(@Param("zyh") String zyh, @Param("xyh") String xyh);
 }

@@ -100,10 +100,10 @@ public class MorenKcController {
         return new Result(ResultCode.SUCCESS, iMorenKcService.searchByKcmc(kcmc));
     }
 
-    @ApiOperation("根据专业号查看合适的课程")
-    @RequestMapping(value = "/searchByZyh", method = RequestMethod.GET, headers = "Authorization")
-    public Result searchByZyh(@RequestParam String zyh) {
-        return iMorenKcService.searchByZyh(zyh);
+    @ApiOperation("根据学院号，和专业号查看合适的课程")
+    @RequestMapping(value = "/searchByZyhAndXyh", method = RequestMethod.GET, headers = "Authorization")
+    public Result searchByZyhAndXyh(@RequestParam String zyh, @RequestParam String xyh) {
+        return iMorenKcService.searchByZyhAndXyh(zyh, xyh);
     }
 
     @ApiOperation("搜索老师，模糊搜索名称")
